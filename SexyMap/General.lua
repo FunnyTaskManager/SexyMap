@@ -198,14 +198,14 @@ do
 				
 				f:ClearAllPoints()
 				f:SetAllPoints()
-				if f:GetTop() - f:GetBottom() < 30 then
+				if not f:GetTop() or f:GetTop() - f:GetBottom() < 30 then
 					f:ClearAllPoints()
 					f:SetPoint("TOPLEFT", pf, "TOPLEFT")
 					f:SetPoint("TOPRIGHT", pf, "TOPRIGHT")
 					f:SetHeight(40)
 				end
 				
-				if f:GetRight() - f:GetLeft() < 30 then
+				if not f:GetLeft() or f:GetRight() - f:GetLeft() < 30 then
 					f:ClearAllPoints()
 					f:SetPoint("TOPLEFT", pf, "TOPLEFT")
 					f:SetHeight(40)

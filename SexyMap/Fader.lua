@@ -117,6 +117,9 @@ do
 
 	function mod:OnEnable()
 		self:HookAll(MinimapCluster, "OnEnter", MinimapCluster:GetChildren())
+		if not self:IsHooked(Minimap, "OnEnter") then
+			self:HookScript(Minimap, "OnEnter")
+		end
 		startFade(MinimapCluster, 0.2, db.normalOpacity)
 	end
 

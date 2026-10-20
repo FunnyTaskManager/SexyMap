@@ -49,6 +49,9 @@ function mod:OnEnable()
 	
 	Minimap:SetScript("OnMouseUp", mod.Minimap_OnClick)
 	self:HookAll(MinimapCluster, "OnEnter", MinimapCluster:GetChildren())
+	if not self:IsHooked(Minimap, "OnEnter") then
+		self:HookScript(Minimap, "OnEnter")
+	end
 	
 	self.db.RegisterCallback(self, "OnProfileChanged", "ReloadAddon")
 	self.db.RegisterCallback(self, "OnProfileCopied", "ReloadAddon")
